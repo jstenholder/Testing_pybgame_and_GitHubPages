@@ -9,6 +9,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    # Debug Step 1: List all files and directories in your repository
+    - name: Debug - List directory contents
+      run: ls -R $GITHUB_WORKSPACE
+
+    # Debug Step 2: Check for any folder named 'main.py'
+    - name: Check for incorrect folder names
+      run: find $GITHUB_WORKSPACE -type d -name "main.py"  
+      
     - name: Checkout
       run: |
             python -m pip install pygbag
